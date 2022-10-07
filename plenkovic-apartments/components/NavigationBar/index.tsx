@@ -129,9 +129,8 @@ export default function NavigationBar() {
             }}
           >
             {pages.map((page, index) => (
-              <Link href={hrefs[index]}>
+              <Link href={hrefs[index]} key={page}>
                 <Button
-                  key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "inherit", display: "block" }}
                 >
