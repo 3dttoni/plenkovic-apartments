@@ -1,11 +1,12 @@
 import { IApartmentsCollection } from "@m/apartment";
+import { Typography } from "@mui/material";
 import { getApartments } from "@u/contentful";
 
 interface ApartmentsProps {
   title: string;
 }
 export default function Apartments({ title }: ApartmentsProps) {
-  return <h1>Apartment title: {title}</h1>;
+  return <Typography variant="h1">Apartment title: {title}</Typography>;
 }
 
 export async function getStaticProps() {
