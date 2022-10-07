@@ -16,7 +16,9 @@
     "incremental": true,
     "paths": {
       "@u/*": ["./utils/*"],
-      "@m/*": ["./models/*"]
+      "@m/*": ["./models/*"],
+      "@c/*": ["./components/*"],
+      "@i/*": ["./interfaces/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
