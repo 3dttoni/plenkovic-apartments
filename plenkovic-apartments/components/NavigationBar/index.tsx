@@ -51,7 +51,7 @@ export default function NavigationBar() {
             />
           </Link>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             color="white"
             sx={{
@@ -133,7 +133,12 @@ export default function NavigationBar() {
               <Link href={hrefs[index]} key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontSize: "1rem",
+                  }}
                 >
                   {page}
                 </Button>

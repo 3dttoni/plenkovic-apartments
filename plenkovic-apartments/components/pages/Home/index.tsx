@@ -1,3 +1,4 @@
+import HomeContactUsCard from "@c/pages/Home/ContactUsCard";
 import HomeHeadingSlides from "@c/pages/Home/HeadingSlides";
 import RichText from "@c/RichText";
 import { Box, Grid } from "@mui/material";
@@ -31,6 +32,11 @@ export default function HomePageComponent({
       >
         <Grid item xs={9}>
           <RichText json={introText} />
+        </Grid>
+      </Grid>
+      <Grid container direction="column">
+        <Grid item alignSelf="end" mt={-6}>
+          <HomeContactUsCard />
         </Grid>
       </Grid>
     </main>

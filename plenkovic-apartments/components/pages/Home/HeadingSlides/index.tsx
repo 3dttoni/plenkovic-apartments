@@ -14,7 +14,7 @@ export default function HomeHeadingSlides({
       setCurrentSlideIndex(
         (currentSlide) => (currentSlide + 1) % headingSlides.length
       );
-    }, 6000);
+    }, 8000);
     return () => clearInterval(intervalId);
   }, []);
 
