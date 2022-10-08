@@ -18,7 +18,8 @@
       "@u/*": ["./utils/*"],
       "@m/*": ["./models/*"],
       "@c/*": ["./components/*"],
-      "@i/*": ["./interfaces/*"]
+      "@i/*": ["./interfaces/*"],
+      "@p/*": ["./pages/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

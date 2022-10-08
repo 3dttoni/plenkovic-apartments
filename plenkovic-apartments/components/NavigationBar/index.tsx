@@ -42,17 +42,18 @@ export default function NavigationBar() {
         <Toolbar disableGutters>
           <Link href="/">
             <SailingOutlinedIcon
-              color="primary"
               sx={{
                 display: { xs: "none", md: "flex" },
                 mr: 1,
                 cursor: "pointer",
+                color: "white",
               }}
             />
           </Link>
           <Typography
             variant="h6"
             noWrap
+            color="white"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -132,7 +133,7 @@ export default function NavigationBar() {
               <Link href={hrefs[index]} key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "inherit", display: "block" }}
+                  sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page}
                 </Button>

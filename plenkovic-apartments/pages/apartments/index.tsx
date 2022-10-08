@@ -2,14 +2,16 @@ import { IApartmentsCollection } from "@m/apartment";
 import { Typography } from "@mui/material";
 import { getApartments } from "@u/contentful";
 
-interface ApartmentsProps {
+interface ApartmentsPageProps {
   title: string;
 }
-export default function Apartments({ title }: ApartmentsProps) {
+export default function ApartmentsPage({ title }: ApartmentsPageProps) {
   return <Typography variant="h1">Apartment title: {title}</Typography>;
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{
+  props: ApartmentsPageProps;
+}> {
   const data: IApartmentsCollection = await getApartments();
 
   return {
