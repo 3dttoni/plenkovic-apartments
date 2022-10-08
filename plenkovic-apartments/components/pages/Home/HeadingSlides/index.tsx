@@ -16,7 +16,7 @@ export default function HomeHeadingSlides({
       );
     }, 8000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [headingSlides.length]);
 
   return (
     <div className={styles.container}>
@@ -24,6 +24,7 @@ export default function HomeHeadingSlides({
         <Image
           src={headingSlides[currentSlideIndex].url}
           title={headingSlides[currentSlideIndex].title}
+          alt={headingSlides[currentSlideIndex].title}
           layout="fill"
         />
       </HideMobile>

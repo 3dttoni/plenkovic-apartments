@@ -31,13 +31,23 @@ export async function getLandingPage(): Promise<ILandingPage> {
             title
             url
           }
-          total
+        }
+        introText {
+          json
         }
         headingText {
           json
         }
-        introText {
-          json
+        topApartmentsCollection {
+          items {
+            summary {
+              json
+            }
+            banner {
+              title
+              url
+            }
+          }
         }
       }
     }

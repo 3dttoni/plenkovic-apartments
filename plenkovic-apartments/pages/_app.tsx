@@ -8,6 +8,7 @@ import { Container } from "@mui/material";
 import type { AppProps } from "next/app";
 import AOS from "aos";
 import { useEffect } from "react";
+import AppFooter from "@c/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <AppFooter />
     </Container>
   );
 }

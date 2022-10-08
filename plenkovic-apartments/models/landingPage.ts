@@ -5,13 +5,20 @@ export interface ILandingPage {
   landingPage: {
     headingSlidesCollection: {
       items: IAsset[];
-      total: number;
     };
     headingText: {
       json: RichTextContent;
     };
     introText: {
       json: RichTextContent;
+    };
+    topApartmentsCollection: {
+      items: [
+        {
+          summary: { json: RichTextContent };
+          banner: IAsset;
+        }
+      ];
     };
   };
 }
