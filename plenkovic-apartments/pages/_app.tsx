@@ -13,9 +13,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     AOS.init();
   }, []);
-  
+
   return (
-    <Container>
+    <Container
+      sx={{
+        fontFamily: "Roboto",
+      }}
+    >
       <AppHead />
       <Layout>
         <Component {...pageProps} />
