@@ -33,6 +33,9 @@ export async function getLandingPage(): Promise<ILandingPage> {
           }
           total
         }
+        headingText {
+          json
+        }
         introText {
           json
         }

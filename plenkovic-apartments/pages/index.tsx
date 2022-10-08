@@ -6,6 +6,7 @@ import { RichTextContent } from "contentful";
 
 export interface HomePageProps {
   headingSlides: IAsset[];
+  headingText: RichTextContent;
   introText: RichTextContent;
 }
 export default function HomePage(props: HomePageProps) {
@@ -18,6 +19,7 @@ export async function getStaticProps(): Promise<{ props: HomePageProps }> {
   return {
     props: {
       headingSlides: data.landingPage.headingSlidesCollection.items,
+      headingText: data.landingPage.headingText.json,
       introText: data.landingPage.introText.json,
     },
   };

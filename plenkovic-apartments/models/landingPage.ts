@@ -7,8 +7,11 @@ export interface ILandingPage {
       items: IAsset[];
       total: number;
     };
+    headingText: {
+      json: RichTextContent;
+    };
     introText: {
-      json: RichTextContent
+      json: RichTextContent;
     };
   };
 }
