@@ -1,16 +1,24 @@
 import ButtonContactUs from "@c/Button/ContactUs";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Grid, Typography } from "@mui/material";
+import BookmarkAddedOutlinedIcon from "@mui/icons-material/BookmarkAddedOutlined";
 
 export default function HomeContactUsCard() {
   return (
     <Card sx={{ p: 1, minWidth: 220 }}>
       <CardContent>
         <Typography variant="h6" component="div">
-          Don not wait
+          Do not wait
         </Typography>
-        <Typography variant="subtitle1" mb={2}>
-          We might get booked
-        </Typography>
+        <Grid container>
+          <Grid item mr={1}>
+            <BookmarkAddedOutlinedIcon />
+          </Grid>
+          <Grid>
+            <Typography variant="subtitle1" mb={3}>
+              Book now
+            </Typography>
+          </Grid>
+        </Grid>
         <ButtonContactUs />
       </CardContent>
     </Card>
