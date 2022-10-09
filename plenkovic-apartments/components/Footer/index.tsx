@@ -61,16 +61,19 @@ export default function AppFooter() {
         pb: 2,
       }}
     >
-      <Box sx={{
-        position:'absolute',
-        top:-80
-      }}>
+      <Box
+        sx={{
+          position: "absolute",
+          top: -80,
+        }}
+      >
         <CardExploreApartments />
       </Box>
       <FooterSection
         title="Location"
         Items={[
           <ListItem
+            key="0"
             component="a"
             target={"_blank"}
             href={`https://maps.google.com/?q=${lat},${lon}`}
@@ -86,56 +89,41 @@ export default function AppFooter() {
       <FooterSection
         title="Direct links"
         Items={[
-          <ListItem>
+          { Icon: MonetizationOnIcon, href: "/prices", text: "Prices" },
+          { Icon: BedIcon, href: "/apartments", text: "Apartments" },
+        ].map(({ href, Icon, text }) => (
+          <ListItem key={href}>
             <ListItemIcon sx={{ color: "info.contrastText" }}>
-              <MonetizationOnIcon sx={{ mr: 0 }} />
+              <Icon />
             </ListItemIcon>
             <ListItemText>
-              <Link href="/prices">
+              <Link href={href}>
                 <a style={{ textDecoration: "none" }}>
-                  <Box sx={{ color: "info.contrastText" }}>Prices</Box>
+                  <Box sx={{ color: "info.contrastText" }}>{text}</Box>
                 </a>
               </Link>
             </ListItemText>
-          </ListItem>,
-          <ListItem>
-            <ListItemIcon sx={{ color: "info.contrastText" }}>
-              <BedIcon />
-            </ListItemIcon>
-            <ListItemText>
-              <Link href="/apartments">
-                <a style={{ textDecoration: "none" }}>
-                  <Box sx={{ color: "info.contrastText" }}>Apartments</Box>
-                </a>
-              </Link>
-            </ListItemText>
-          </ListItem>,
-        ]}
+          </ListItem>
+        ))}
       />
       <FooterSection
         title="Contact"
         Items={[
+          { text: email, href: `mailto:${email}`, Icon: EmailIcon },
+          { text: phone, href: `tel:${phone}`, Icon: PhoneIcon },
+        ].map(({ text, href, Icon }) => (
           <ListItem
+            key={href}
             component="a"
-            href={`mailto:${email}`}
+            href={href}
             sx={{ color: "info.contrastText" }}
           >
             <ListItemIcon sx={{ color: "info.contrastText" }}>
-              <EmailIcon />
+              <Icon />
             </ListItemIcon>
-            <ListItemText>{email}</ListItemText>{" "}
-          </ListItem>,
-          <ListItem
-            component="a"
-            href={`tel:${phone}`}
-            sx={{ color: "info.contrastText" }}
-          >
-            <ListItemIcon sx={{ color: "info.contrastText" }}>
-              <PhoneIcon />
-            </ListItemIcon>
-            <ListItemText>{phone}</ListItemText>{" "}
-          </ListItem>,
-        ]}
+            <ListItemText>{text}</ListItemText>{" "}
+          </ListItem>
+        ))}
       />
       <script
         async={true}
