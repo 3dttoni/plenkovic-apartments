@@ -1,4 +1,4 @@
-import HomePageComponent from "@c/pages/Home";
+import HomePageComponent from "@c/Home";
 import { IAsset } from "@m/common";
 import { ILandingPage } from "@m/landingPage";
 import { getLandingPage } from "@u/contentful";

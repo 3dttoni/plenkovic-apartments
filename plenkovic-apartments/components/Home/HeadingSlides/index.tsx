@@ -1,5 +1,5 @@
 import { HomePageProps } from "@p/index";
-import styles from "@c/pages/Home/HeadingSlides/HeadingSlides.module.scss";
+import styles from "@c/Home/HeadingSlides/HeadingSlides.module.scss";
 import Image from "next/image";
 import HideMobile from "@c/Hide/Mobile";
 import { useEffect, useState } from "react";

@@ -1,9 +1,10 @@
-import HomeApartment from "@c/pages/Home/Apartment";
-import HomeContactUsCard from "@c/pages/Home/ContactUsCard";
-import HomeHeadingSlides from "@c/pages/Home/HeadingSlides";
+import HomeApartment, { HomeApartmentProps } from "@c/Home/Apartment";
+import HomeContactUsCard from "@c/Home/ContactUsCard";
+import HomeHeadingSlides from "@c/Home/HeadingSlides";
 import RichText from "@c/RichText";
 import { Grid, Typography } from "@mui/material";
 import { HomePageProps } from "@p/index";
+import { useEffect, useState } from "react";
 
 export default function HomePageComponent({
   headingSlides,
@@ -11,6 +12,21 @@ export default function HomePageComponent({
   introText,
   apartments,
 }: HomePageProps) {
+  const [apartmentsSummary, setApartmentsSummary] = useState<
+    HomeApartmentProps[]
+  >([]);
+
+  useEffect(() => {
+    if (apartments)
+      setApartmentsSummary(
+        apartments.map(({ summary, banner }, index) => ({
+          summary,
+          banner,
+          imagePosition: index % 2 === 0 ? "left" : "right",
+        }))
+      );
+  }, [apartments]);
+
   return (
     <main>
       <HomeHeadingSlides headingSlides={headingSlides} />
@@ -49,14 +65,10 @@ export default function HomePageComponent({
         <Typography mt={6} variant="h2">
           Apartments
         </Typography>
-        {apartments.map(({ summary, banner }, index) => (
-          <Grid
-            data-aos={`fade-${index % 2 == 0 ? "left" : "right"}`}
-            item
-            key={banner.url}
-          >
+        {apartmentsSummary.map(({ summary, banner, imagePosition }) => (
+          <Grid data-aos={`fade-${imagePosition}`} item key={banner.url}>
             <HomeApartment
-              imagePosition={index % 2 === 0 ? "left" : "right"}
+              imagePosition={imagePosition}
               summary={summary}
               banner={banner}
             />

@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { RichTextContent } from "contentful";
 import Image from "next/image";
 
-interface HomeApartmentProps {
+export interface HomeApartmentProps {
   summary: RichTextContent;
   banner: IAsset;
   imagePosition: "left" | "right";
