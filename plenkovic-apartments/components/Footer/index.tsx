@@ -16,6 +16,7 @@ import Link from "next/link";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import BedIcon from "@mui/icons-material/Bed";
 import CardExploreApartments from "@c/Card/ExploreApartments";
+import { appRoutes } from "@u/routes";
 
 interface FooterSectionProps {
   title: string;
@@ -89,17 +90,17 @@ export default function AppFooter() {
       <FooterSection
         title="Direct links"
         Items={[
-          { Icon: MonetizationOnIcon, href: "/prices", text: "Prices" },
-          { Icon: BedIcon, href: "/apartments", text: "Apartments" },
-        ].map(({ href, Icon, text }) => (
-          <ListItem key={href}>
+          { Icon: MonetizationOnIcon, appRoute: appRoutes.prices },
+          { Icon: BedIcon, appRoute: appRoutes.apartments },
+        ].map(({ Icon, appRoute: { title, path } }) => (
+          <ListItem key={path}>
             <ListItemIcon sx={{ color: "info.contrastText" }}>
               <Icon />
             </ListItemIcon>
             <ListItemText>
-              <Link href={href}>
+              <Link href={path}>
                 <a style={{ textDecoration: "none" }}>
-                  <Box sx={{ color: "info.contrastText" }}>{text}</Box>
+                  <Box sx={{ color: "info.contrastText" }}>{title}</Box>
                 </a>
               </Link>
             </ListItemText>
