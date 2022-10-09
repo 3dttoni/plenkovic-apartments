@@ -13,9 +13,9 @@ import SailingOutlinedIcon from "@mui/icons-material/SailingOutlined";
 import Link from "next/link";
 import { useTheme } from "@mui/system";
 import { useMediaQuery } from "@mui/material";
+import { appRoutes } from "@u/routes";
 
-const pages = ["Home", "Apartments", "Prices"];
-const hrefs = ["/", "/apartments", "/prices"];
+const pages = Object.keys(appRoutes).map((key) => appRoutes[key]);
 
 export default function NavigationBar() {
   const theme = useTheme();
@@ -93,9 +93,15 @@ export default function NavigationBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map(({ path, title }) => (
+                <MenuItem key={path} onClick={handleCloseNavMenu}>
+                  <Link href={path}>
+                    <a style={{ textDecoration: "none" }}>
+                      <Typography color="common.black" textAlign="center">
+                        {title}
+                      </Typography>
+                    </a>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -129,8 +135,8 @@ export default function NavigationBar() {
               justifyContent: "end",
             }}
           >
-            {pages.map((page, index) => (
-              <Link href={hrefs[index]} key={page}>
+            {pages.map(({ path, title }) => (
+              <Link href={path} key={path}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{
@@ -139,8 +145,9 @@ export default function NavigationBar() {
                     display: "block",
                     fontSize: "1rem",
                   }}
+                  component="a"
                 >
-                  {page}
+                  {title}
                 </Button>
               </Link>
             ))}
