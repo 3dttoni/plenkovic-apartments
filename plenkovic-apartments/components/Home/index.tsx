@@ -1,5 +1,5 @@
 import HomeApartment, { HomeApartmentProps } from "@c/Home/Apartment";
-import HomeContactUsCard from "@c/Home/ContactUsCard";
+import HomeContactUsCard from "@c/Card/ContactUs";
 import HomeHeadingSlides from "@c/Home/HeadingSlides";
 import RichText from "@c/RichText";
 import { Grid, Typography } from "@mui/material";

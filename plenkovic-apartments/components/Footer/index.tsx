@@ -15,6 +15,7 @@ import { AppContext } from "@c/App/context";
 import Link from "next/link";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import BedIcon from "@mui/icons-material/Bed";
+import CardExploreApartments from "@c/Card/ExploreApartments";
 
 interface FooterSectionProps {
   title: string;
@@ -55,11 +56,17 @@ export default function AppFooter() {
         left: 0,
         right: 0,
         position: "absolute",
-        mt: 14,
-        pt:12,
-        pb:6
+        mt: 22,
+        pt: 15,
+        pb: 2,
       }}
     >
+      <Box sx={{
+        position:'absolute',
+        top:-80
+      }}>
+        <CardExploreApartments />
+      </Box>
       <FooterSection
         title="Location"
         Items={[
