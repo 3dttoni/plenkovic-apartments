@@ -76,6 +76,7 @@ export default function AppFooter() {
       }}
     >
       <Box
+      data-aos='flip-left'
         sx={{
           position: { md: "absolute" },
           top: { md: -80 },

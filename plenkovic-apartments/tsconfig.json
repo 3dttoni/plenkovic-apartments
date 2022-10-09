@@ -19,7 +19,8 @@
       "@m/*": ["./models/*"],
       "@c/*": ["./components/*"],
       "@i/*": ["./interfaces/*"],
-      "@p/*": ["./pages/*"]
+      "@p/*": ["./pages/*"],
+      "@h/*": ["./hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

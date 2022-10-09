@@ -2,9 +2,10 @@ import HomeApartment, { HomeApartmentProps } from "@c/Home/Apartment";
 import HomeContactUsCard from "@c/Card/ContactUs";
 import HomeHeadingSlides from "@c/Home/HeadingSlides";
 import RichText from "@c/RichText";
-import { Grid, Typography } from "@mui/material";
+import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { HomePageProps } from "@p/index";
 import { useEffect, useState } from "react";
+import useIsMobile from "@h/useIsMobile";
 
 export default function HomePageComponent({
   headingSlides,
@@ -12,6 +13,7 @@ export default function HomePageComponent({
   introText,
   apartments,
 }: HomePageProps) {
+  const animationEffect = useIsMobile() ? "flip" : "fade";
   const [apartmentsSummary, setApartmentsSummary] = useState<
     HomeApartmentProps[]
   >([]);
@@ -29,44 +31,52 @@ export default function HomePageComponent({
 
   return (
     <main>
-      <HomeHeadingSlides headingSlides={headingSlides} />
       <Grid
         container
         alignItems="center"
         sx={{
+          display: { md: "flex", xs: "none" },
           height: { xs: "auto", md: 550 },
           color: "white",
-          bgcolor: { md: "transparent", xs: "primary.dark" },
           h1: {
-            fontSize: {
-              xs: "3rem",
-              md: "5rem",
-            },
+            fontSize: "5rem",
             mb: 2,
           },
           h2: {
-            fontSize: { xs: "2rem", md: "4rem" },
+            fontSize: "4rem",
             mt: 2,
           },
           p: {
-            fontSize: {
-              md: "1.5rem",
-              sx: "1.25rem",
-            },
-          },
-          padding: {
-            md: 0,
-            xs: 1,
+            fontSize: "1.5rem",
           },
         }}
       >
-        <Grid item xs={9} data-aos="fade-down">
+        <HomeHeadingSlides headingSlides={headingSlides} />
+        <Grid item xs={9} data-aos={`${animationEffect}-left`}>
           <RichText json={headingText} />
         </Grid>
       </Grid>
+      <Card
+        data-aos="flip-left"
+        sx={{
+          display: { md: "none", xs: "inherit" },
+          my: 4,
+        }}
+        elevation={5}
+      >
+        <CardContent>
+          <RichText json={headingText} />
+        </CardContent>
+      </Card>
       <Grid container direction="column">
-        <Grid container my={3} justifyContent="space-between">
-          <Grid item xs={12} md={9} mt={4} data-aos="fade-down-right">
+        <Grid container my={{ md: 3 }} justifyContent="space-between">
+          <Grid
+            item
+            xs={12}
+            md={9}
+            mt={{ md: 4 }}
+            data-aos={`${animationEffect}-right`}
+          >
             <RichText json={introText} />
           </Grid>
           <Grid
@@ -79,7 +89,7 @@ export default function HomePageComponent({
             }}
             xs={12}
             md={2}
-            data-aos="fade-left"
+            data-aos={`flip-left`}
           >
             <HomeContactUsCard />
           </Grid>
@@ -88,7 +98,11 @@ export default function HomePageComponent({
           Apartments
         </Typography>
         {apartmentsSummary.map(({ summary, banner, imagePosition }) => (
-          <Grid data-aos={`fade-${imagePosition}`} item key={banner.url}>
+          <Grid
+            data-aos={`${animationEffect}-${imagePosition}`}
+            item
+            key={banner.url}
+          >
             <HomeApartment
               imagePosition={imagePosition}
               summary={summary}
