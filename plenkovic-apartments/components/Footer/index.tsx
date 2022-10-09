@@ -17,6 +17,7 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import BedIcon from "@mui/icons-material/Bed";
 import CardExploreApartments from "@c/Card/ExploreApartments";
 import { appRoutes } from "@u/routes";
+import useIsMobile from "@h/useIsMobile";
 
 interface FooterSectionProps {
   title: string;
@@ -25,23 +26,15 @@ interface FooterSectionProps {
 
 function FooterSection({ title, Items }: FooterSectionProps) {
   return (
-    <Grid
-      item
-      xs={12}
-      md={2}
-      sx={{
-        mt: {
-          xs: 2,
-        },
-      }}
-    >
+    <Grid item xs={12} md={2}>
       <List>
         <ListItem>
           <ListItemText>
             <Typography
-              variant="h6"
+              variant={"overline"}
               component={"div"}
               textAlign={{ xs: "center" }}
+              fontSize={"1rem"}
             >
               {title}
             </Typography>
@@ -58,6 +51,7 @@ export default function AppFooter() {
     contact: { email, phone },
     propertyLocation: { lat, lon },
   } = useContext(AppContext);
+  const isMobile = useIsMobile();
 
   return (
     <Grid
@@ -76,10 +70,11 @@ export default function AppFooter() {
       }}
     >
       <Box
-      data-aos='flip-left'
+        data-aos="flip-left"
         sx={{
           position: { md: "absolute" },
           top: { md: -80 },
+          mb: { xs: 4 },
         }}
       >
         <CardExploreApartments />
@@ -88,6 +83,7 @@ export default function AppFooter() {
         title="Location"
         Items={[
           <ListItem
+            dense={isMobile}
             key="0"
             component="a"
             target={"_blank"}
@@ -107,7 +103,7 @@ export default function AppFooter() {
           { Icon: MonetizationOnIcon, appRoute: appRoutes.prices },
           { Icon: BedIcon, appRoute: appRoutes.apartments },
         ].map(({ Icon, appRoute: { title, path } }) => (
-          <ListItem key={path}>
+          <ListItem dense={isMobile} key={path}>
             <ListItemIcon sx={{ color: "info.contrastText" }}>
               <Icon />
             </ListItemIcon>
@@ -128,6 +124,7 @@ export default function AppFooter() {
           { text: phone, href: `tel:${phone}`, Icon: PhoneIcon },
         ].map(({ text, href, Icon }) => (
           <ListItem
+            dense={isMobile}
             key={href}
             component="a"
             href={href}
