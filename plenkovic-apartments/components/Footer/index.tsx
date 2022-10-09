@@ -50,6 +50,7 @@ export default function AppFooter() {
   const {
     contact: { email, phone },
     propertyLocation: { lat, lon },
+    pathname,
   } = useContext(AppContext);
   const isMobile = useIsMobile();
 
@@ -64,9 +65,17 @@ export default function AppFooter() {
         left: 0,
         right: 0,
         position: "absolute",
-        mt: { md: 22, xs: 4 },
-        pt: { md: 15, xs: 4 },
-        pb: 2,
+        ...(pathname !== appRoutes.apartments.path
+          ? {
+              mt: { md: 22, xs: 4 },
+              pt: { md: 15, xs: 4 },
+              pb: 2,
+            }
+          : {
+              mt: { md: 4, xs: 2 },
+              pt: { md: 4, xs: 2 },
+              pb: 2,
+            }),
       }}
     >
       <Box

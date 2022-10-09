@@ -1,4 +1,4 @@
-import { IAsset } from "@m/common";
+import { IAsset } from "@m/shared";
 import { RichTextContent } from "contentful";
 
 export interface ILandingPage {

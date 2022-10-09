@@ -1,5 +1,5 @@
 import RichText from "@c/RichText";
-import { IAsset } from "@m/common";
+import { IAsset } from "@m/shared";
 import { Card, CardContent, CardHeader, CardMedia } from "@mui/material";
 import { RichTextContent } from "contentful";
 import StarIcon from "@mui/icons-material/Star";

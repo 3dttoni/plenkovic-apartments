@@ -1,4 +1,4 @@
-import { ILocation } from "@m/common";
+import { ILocation } from "@m/shared";
 
 export interface IAppSettings {
   appSettingsCollection: {

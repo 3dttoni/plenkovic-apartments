@@ -1,4 +1,4 @@
-import { IapartmentCollection } from "@m/apartment";
+import { IApartmentCollection } from "@m/apartment";
 import { IAppSettings } from "@m/appSettings";
 import { ILandingPage } from "@m/landingPage";
 import { IPrices } from "@m/prices";
@@ -12,12 +12,52 @@ const graphQLClient = new GraphQLClient(endpoint, {
   },
 });
 
-export async function getApartments(): Promise<IapartmentCollection> {
+export async function getApartments(): Promise<IApartmentCollection> {
   return graphQLClient.request(gql`
     {
-      apartmentCollection {
+      apartmentCollection(limit: 20) {
         items {
           title
+          description {
+            json
+          }
+          stars
+          pros {
+            json
+          }
+          cons {
+            json
+          }
+          location {
+            lat
+            lon
+          }
+          galleryCollection {
+            items {
+              url
+              title
+            }
+          }
+          reviewsCollection {
+            items {
+              rate
+              reviewDate
+              review
+              personName
+              personPhoto {
+                url
+                title
+              }
+            }
+          }
+          headerImage {
+            url
+            title
+          }
+          pricesSection {
+            json
+          }
+          stars
         }
       }
     }

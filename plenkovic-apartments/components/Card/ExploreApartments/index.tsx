@@ -1,7 +1,14 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import ButtonExploreApartments from "@c/Button/ExploreApartments";
+import { useContext } from "react";
+import { AppContext } from "@c/App/context";
+import { appRoutes } from "@u/routes";
 
 export default function CardExploreApartments() {
+  const { pathname } = useContext(AppContext);
+
+  if (pathname === appRoutes.apartments.path) return null;
+
   return (
     <Card
       sx={{

@@ -1,5 +1,5 @@
 import RichText from "@c/RichText";
-import { IAsset } from "@m/common";
+import { IAsset } from "@m/shared";
 import { Box, Grid, Typography } from "@mui/material";
 import { RichTextContent } from "contentful";
 import Image from "next/image";
@@ -45,7 +45,7 @@ export default function HomeApartment({
   );
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={{ md: 2 }}>
       <Grid item xs={12} md={6}>
         {imagePosition === "left" ? ImageComponent : RichTextComponent}
       </Grid>

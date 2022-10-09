@@ -1,22 +1,47 @@
-import { IapartmentCollection } from "@m/apartment";
-import { Typography } from "@mui/material";
+import ApartmentsPageComponent from "@c/Apartments";
+import { ApartmentDetailProps } from "@c/Apartments/Detail";
+import { IApartmentCollection } from "@m/apartment";
 import { getApartments } from "@u/contentful";
 
-interface ApartmentsPageProps {
-  title: string;
+export interface ApartmentsPageProps {
+  apartments: ApartmentDetailProps[];
 }
-export default function ApartmentsPage({ title }: ApartmentsPageProps) {
-  return <Typography variant="h1">Apartment title: {title}</Typography>;
+export default function ApartmentsPage(props: ApartmentsPageProps) {
+  return <ApartmentsPageComponent {...props} />;
 }
 
 export async function getStaticProps(): Promise<{
   props: ApartmentsPageProps;
 }> {
-  const data: IapartmentCollection = await getApartments();
+  const data: IApartmentCollection = await getApartments();
 
   return {
     props: {
-      title: data.apartmentCollection.items[0].title,
+      apartments: data.apartmentCollection.items.map(
+        ({
+          title,
+          description,
+          stars,
+          location,
+          headerImage,
+          pricesSection,
+          reviewsCollection,
+          pros,
+          cons,
+          galleryCollection,
+        }) => ({
+          title,
+          stars,
+          location,
+          headerImage,
+          description: description.json,
+          pricesSection: pricesSection.json,
+          reviewsCollection: reviewsCollection.items,
+          pros: pros.json,
+          cons: cons.json,
+          gallery: galleryCollection.items,
+        })
+      ),
     },
   };
 }

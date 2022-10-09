@@ -32,11 +32,12 @@ export default function NavigationBar() {
     setAnchorElNav(null);
   };
 
+  console.log('pathname:', pathname)
   return (
     <AppBar
       position="static"
       color={
-        isMobile || pathname !== appRoutes.home.path ? "primary" : "transparent"
+        (isMobile || pathname !== appRoutes.home.path) ? "primary" : "transparent"
       }
       elevation={isMobile ? 5 : 0}
     >

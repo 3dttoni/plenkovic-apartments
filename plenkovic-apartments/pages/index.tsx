@@ -1,5 +1,5 @@
 import HomePageComponent from "@c/Home";
-import { IAsset } from "@m/common";
+import { IAsset } from "@m/shared";
 import { ILandingPage } from "@m/landingPage";
 import { getLandingPage } from "@u/contentful";
 import { RichTextContent } from "contentful";

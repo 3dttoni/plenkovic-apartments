@@ -18,12 +18,14 @@ export async function getStaticProps(): Promise<{
 
   return {
     props: {
-      apartments: data.apartmentCollection.items.map((item) => ({
-        priceSection: item.pricesSection.json,
-        stars: item.stars,
-        image: item.banner,
-        title: item.title,
-      })),
+      apartments: data.apartmentCollection.items.map(
+        ({ stars, banner, title, pricesSection }) => ({
+          priceSection: pricesSection.json,
+          stars,
+          image: banner,
+          title,
+        })
+      ),
     },
   };
 }

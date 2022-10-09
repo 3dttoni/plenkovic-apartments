@@ -1,5 +1,5 @@
 import { IChildren } from "@i/common";
-import { ILocation } from "@m/common";
+import { ILocation } from "@m/shared";
 import { createContext, useContext } from "react";
 
 export interface IAppContext {
