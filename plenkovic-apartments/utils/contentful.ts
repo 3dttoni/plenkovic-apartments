@@ -1,4 +1,5 @@
 import { IApartmentsCollection } from "@m/apartment";
+import { IAppSettings } from "@m/appSettings";
 import { ILandingPage } from "@m/landingPage";
 import { GraphQLClient, gql } from "graphql-request";
 
@@ -47,6 +48,23 @@ export async function getLandingPage(): Promise<ILandingPage> {
               title
               url
             }
+          }
+        }
+      }
+    }
+  `);
+}
+
+export async function getAppSettings(): Promise<IAppSettings> {
+  return graphQLClient.request(gql`
+    {
+      appSettingsCollection {
+        items {
+          contactPhone
+          email
+          propertyLocation {
+            lat
+            lon
           }
         }
       }
