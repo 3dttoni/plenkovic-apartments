@@ -19,15 +19,15 @@ export default function HomeHeadingSlides({
   }, [headingSlides.length]);
 
   return (
-    <div className={styles.container}>
-      <HideMobile>
+    <HideMobile>
+      <div className={styles.container}>
         <Image
           src={headingSlides[currentSlideIndex].url}
           title={headingSlides[currentSlideIndex].title}
           alt={headingSlides[currentSlideIndex].title}
           layout="fill"
         />
-      </HideMobile>
-    </div>
+      </div>
+    </HideMobile>
   );
 }

@@ -25,11 +25,24 @@ interface FooterSectionProps {
 
 function FooterSection({ title, Items }: FooterSectionProps) {
   return (
-    <Grid item xs={3} md={2}>
+    <Grid
+      item
+      xs={12}
+      md={2}
+      sx={{
+        mt: {
+          xs: 2,
+        },
+      }}
+    >
       <List>
         <ListItem>
           <ListItemText>
-            <Typography variant="h6" component={"div"}>
+            <Typography
+              variant="h6"
+              component={"div"}
+              textAlign={{ xs: "center" }}
+            >
               {title}
             </Typography>
           </ListItemText>
@@ -57,15 +70,15 @@ export default function AppFooter() {
         left: 0,
         right: 0,
         position: "absolute",
-        mt: 22,
-        pt: 15,
+        mt: { md: 22, xs: 4 },
+        pt: { md: 15, xs: 4 },
         pb: 2,
       }}
     >
       <Box
         sx={{
-          position: "absolute",
-          top: -80,
+          position: { md: "absolute" },
+          top: { md: -80 },
         }}
       >
         <CardExploreApartments />

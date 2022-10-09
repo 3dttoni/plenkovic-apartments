@@ -34,18 +34,32 @@ export default function HomePageComponent({
         container
         alignItems="center"
         sx={{
-          height: 550,
+          height: { xs: "auto", md: 550 },
           color: "white",
+          bgcolor: {
+            xs: "primary.light",
+            md: "transparent",
+          },
           h1: {
-            fontSize: "5rem",
+            fontSize: {
+              xs: "3rem",
+              md: "5rem",
+            },
             mb: 2,
           },
           h2: {
-            fontSize: "4rem",
+            fontSize: { xs: "2rem", md: "4rem" },
             mt: 2,
           },
           p: {
-            fontSize: "1.5rem",
+            fontSize: {
+              md: "1.5rem",
+              sx: "1.25rem",
+            },
+          },
+          padding: {
+            md: 0,
+            xs: 1,
           },
         }}
       >
@@ -58,7 +72,18 @@ export default function HomePageComponent({
           <Grid item xs={9} mt={4} data-aos="fade-down-right">
             <RichText json={introText} />
           </Grid>
-          <Grid item xs={2} mt={-6} data-aos="fade-left">
+          <Grid
+            item
+            sx={{
+              mt: {
+                xs: 0,
+                md: -6,
+              },
+            }}
+            xs={12}
+            md={2}
+            data-aos="fade-left"
+          >
             <HomeContactUsCard />
           </Grid>
         </Grid>

@@ -3,7 +3,17 @@ import ButtonExploreApartments from "@c/Button/ExploreApartments";
 
 export default function CardExploreApartments() {
   return (
-    <Card sx={{ py: 2, px: 4, minWidth: "50vw" }} elevation={5}>
+    <Card
+      sx={{
+        py: 2,
+        px: 4,
+        minWidth: "50vw",
+        maxWidth: {
+          xs: 280,
+        },
+      }}
+      elevation={5}
+    >
       <Grid container justifyContent={"space-between"}>
         <Grid item>
           <CardContent>
