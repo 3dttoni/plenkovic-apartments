@@ -36,10 +36,7 @@ export default function HomePageComponent({
         sx={{
           height: { xs: "auto", md: 550 },
           color: "white",
-          bgcolor: {
-            xs: "primary.light",
-            md: "transparent",
-          },
+          bgcolor: { md: "transparent", xs: "primary.dark" },
           h1: {
             fontSize: {
               xs: "3rem",
@@ -69,7 +66,7 @@ export default function HomePageComponent({
       </Grid>
       <Grid container direction="column">
         <Grid container my={3} justifyContent="space-between">
-          <Grid item xs={9} mt={4} data-aos="fade-down-right">
+          <Grid item xs={12} md={9} mt={4} data-aos="fade-down-right">
             <RichText json={introText} />
           </Grid>
           <Grid

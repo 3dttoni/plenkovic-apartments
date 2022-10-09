@@ -4,7 +4,7 @@ import BookmarkAddedOutlinedIcon from "@mui/icons-material/BookmarkAddedOutlined
 
 export default function CardContactUs() {
   return (
-    <Card sx={{ p: 1, minWidth: 220 }} elevation={5}>
+    <Card sx={{ p: 1, minWidth: { md: 220 } }} elevation={5}>
       <CardContent>
         <Typography variant="h6" component="div">
           Do not wait

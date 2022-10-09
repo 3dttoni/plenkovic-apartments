@@ -1,8 +1,8 @@
 import { HomePageProps } from "@p/index";
-import styles from "@c/Home/HeadingSlides/HeadingSlides.module.scss";
 import Image from "next/image";
-import HideMobile from "@c/Hide/Mobile";
 import { useEffect, useState } from "react";
+import { Box } from "@mui/material";
+import HideMobile from "@c/Hide/Mobile";
 
 export default function HomeHeadingSlides({
   headingSlides,
@@ -20,14 +20,28 @@ export default function HomeHeadingSlides({
 
   return (
     <HideMobile>
-      <div className={styles.container}>
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 650,
+          zIndex: -1,
+          img: {
+            filter: "brightness(70%)",
+            objectFit: "cover",
+            width: "100vw",
+          },
+        }}
+      >
         <Image
           src={headingSlides[currentSlideIndex].url}
           title={headingSlides[currentSlideIndex].title}
           alt={headingSlides[currentSlideIndex].title}
           layout="fill"
         />
-      </div>
+      </Box>
     </HideMobile>
   );
 }
