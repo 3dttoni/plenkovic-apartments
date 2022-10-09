@@ -20,16 +20,16 @@ function MyApp(props: AppProps & IAppContext) {
 export default MyApp;
 
 // TODO: Remove getInitialProps
-MyApp.getInitialProps =  async function(): Promise<IAppContext> {
+MyApp.getInitialProps = async function (ctx: any): Promise<IAppContext> {
   const data: IAppSettings = await getAppSettings();
   const settings = data.appSettingsCollection.items[0];
 
   return {
-      contact: {
-        phone: settings.contactPhone,
-        email: settings.email,
-      },
-      propertyLocation: settings.propertyLocation,
-    
+    contact: {
+      phone: settings.contactPhone,
+      email: settings.email,
+    },
+    propertyLocation: settings.propertyLocation,
+    pathname: ctx.pathname,
   };
-}
+};

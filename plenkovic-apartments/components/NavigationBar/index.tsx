@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,15 +11,15 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import SailingOutlinedIcon from "@mui/icons-material/SailingOutlined";
 import Link from "next/link";
-import { useTheme } from "@mui/system";
-import { useMediaQuery } from "@mui/material";
 import { appRoutes } from "@u/routes";
+import useIsMobile from "@h/useIsMobile";
+import { AppContext } from "@c/App/context";
 
 const pages = Object.keys(appRoutes).map((key) => appRoutes[key]);
 
 export default function NavigationBar() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useIsMobile();
+  const { pathname } = useContext(AppContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -35,8 +35,10 @@ export default function NavigationBar() {
   return (
     <AppBar
       position="static"
-      color={isMobile ? "primary" : "transparent"}
-      elevation={isMobile ? 3 : 0}
+      color={
+        isMobile || pathname !== appRoutes.home.path ? "primary" : "transparent"
+      }
+      elevation={isMobile ? 5 : 0}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -116,6 +118,7 @@ export default function NavigationBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
+              py:1
             }}
           >
             PLENKOVIĆ <br />

@@ -1,4 +1,4 @@
-import { IApartmentsCollection } from "@m/apartment";
+import { IapartmentCollection } from "@m/apartment";
 import { Typography } from "@mui/material";
 import { getApartments } from "@u/contentful";
 
@@ -12,7 +12,7 @@ export default function ApartmentsPage({ title }: ApartmentsPageProps) {
 export async function getStaticProps(): Promise<{
   props: ApartmentsPageProps;
 }> {
-  const data: IApartmentsCollection = await getApartments();
+  const data: IapartmentCollection = await getApartments();
 
   return {
     props: {

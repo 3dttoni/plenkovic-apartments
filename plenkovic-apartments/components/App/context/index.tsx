@@ -8,6 +8,7 @@ export interface IAppContext {
     phone: string;
   };
   propertyLocation: ILocation;
+  pathname: string;
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -19,15 +20,17 @@ export const AppContext = createContext<IAppContext>({
     lat: 0,
     lon: 0,
   },
+  pathname: "",
 });
 
 export default function AppProvider({
   children,
   contact,
   propertyLocation,
+  pathname,
 }: IChildren & IAppContext) {
   return (
-    <AppContext.Provider value={{ contact, propertyLocation }}>
+    <AppContext.Provider value={{ contact, propertyLocation, pathname }}>
       {children}
     </AppContext.Provider>
   );

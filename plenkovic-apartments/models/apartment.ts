@@ -2,7 +2,7 @@ export interface IApartment {
   title: string;
 }
 
-export interface IApartmentsCollection {
+export interface IapartmentCollection {
   apartmentCollection: {
     items: [IApartment];
   };

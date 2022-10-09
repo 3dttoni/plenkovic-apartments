@@ -9,13 +9,19 @@ export default function App({
   Component,
   pageProps,
   contact,
+  pathname,
   propertyLocation,
 }: AppProps & IAppContext) {
   return (
-    <AppProvider contact={contact} propertyLocation={propertyLocation}>
+    <AppProvider
+      pathname={pathname}
+      contact={contact}
+      propertyLocation={propertyLocation}
+    >
       <Container
         sx={{
           fontFamily: "Roboto",
+          p: { xs: 0 },
         }}
       >
         <AppHead />

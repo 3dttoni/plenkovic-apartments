@@ -7,7 +7,7 @@ import { HomePageProps } from "@p/index";
 import { useEffect, useState } from "react";
 import useIsMobile from "@h/useIsMobile";
 
-export default function HomePageComponent({
+export default function Home({
   headingSlides,
   headingText,
   introText,

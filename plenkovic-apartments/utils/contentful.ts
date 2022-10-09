@@ -1,6 +1,7 @@
-import { IApartmentsCollection } from "@m/apartment";
+import { IapartmentCollection } from "@m/apartment";
 import { IAppSettings } from "@m/appSettings";
 import { ILandingPage } from "@m/landingPage";
+import { IPrices } from "@m/prices";
 import { GraphQLClient, gql } from "graphql-request";
 
 const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE}`;
@@ -11,11 +12,31 @@ const graphQLClient = new GraphQLClient(endpoint, {
   },
 });
 
-export async function getApartments(): Promise<IApartmentsCollection> {
+export async function getApartments(): Promise<IapartmentCollection> {
   return graphQLClient.request(gql`
     {
       apartmentCollection {
         items {
+          title
+        }
+      }
+    }
+  `);
+}
+
+export async function getPrices(): Promise<IPrices> {
+  return graphQLClient.request(gql`
+    {
+      apartmentCollection {
+        items {
+          banner {
+            url
+            title
+          }
+          pricesSection {
+            json
+          }
+          stars
           title
         }
       }
