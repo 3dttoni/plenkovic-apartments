@@ -17,4 +17,8 @@ export const appRoutes: IAppRoutes = {
     path: "/prices",
     title: "Prices",
   },
+  location: {
+    path: "/location",
+    title: 'Location'
+  }
 };

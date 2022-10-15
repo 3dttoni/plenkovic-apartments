@@ -21,7 +21,7 @@ function MyApp(props: AppProps & IAppContext) {
 export default MyApp;
 
 // TODO: Remove getInitialProps
-MyApp.getInitialProps = async function ({ctx}: any): Promise<IAppContext> {
+MyApp.getInitialProps = async function ({ ctx }: any): Promise<IAppContext> {
   const data: IAppSettings = await getAppSettings();
   const settings = data.appSettingsCollection.items[0];
 
