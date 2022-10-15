@@ -1,7 +1,6 @@
 import RichText from "@c/RichText";
 import { IAsset } from "@m/shared";
-import { Card, CardContent, CardHeader, CardMedia } from "@mui/material";
-import { getStarsIcons } from "@u/apartment";
+import { Card, CardContent, CardHeader, CardMedia, Rating } from "@mui/material";
 import { RichTextContent } from "contentful";
 
 export interface PricesApartmentProps {
@@ -22,11 +21,7 @@ export default function PricesApartment({
       <CardHeader
         title={title}
         subheader={
-          <>
-            {getStarsIcons(stars).map((Icon, index) => (
-              <Icon color="success" key={index} />
-            ))}
-          </>
+          <Rating defaultValue={stars} precision={0.5} />
         }
       />
       <CardMedia

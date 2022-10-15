@@ -6,10 +6,9 @@ import {
   CardHeader,
   CardMedia,
   Grid,
+  Rating,
 } from "@mui/material";
-import { getStarsIcons } from "@u/apartment";
 import { RichTextContent } from "contentful";
-import { useCallback } from "react";
 import ReactImageGallery from "react-image-gallery";
 
 export interface ApartmentDetailProps {
@@ -37,10 +36,6 @@ export default function ApartmentDetail({
   gallery,
   index = 0,
 }: ApartmentDetailProps) {
-  const getStars = useCallback(() => {
-    return getStarsIcons(stars);
-  }, [stars]);
-
   return (
     <Card
       elevation={0}
@@ -54,9 +49,7 @@ export default function ApartmentDetail({
             title={title}
             subheader={
               <>
-                {getStars().map((Icon, index) => (
-                  <Icon color="success" key={index} />
-                ))}
+                <Rating defaultValue={stars} precision={0.5} />
               </>
             }
           />
