@@ -22,7 +22,6 @@ export async function getStaticProps(): Promise<{
           title,
           description,
           stars,
-          location,
           headerImage,
           pricesSection,
           reviewsCollection,
@@ -32,7 +31,6 @@ export async function getStaticProps(): Promise<{
         }) => ({
           title,
           stars,
-          location,
           headerImage,
           description: description.json,
           pricesSection: pricesSection.json,

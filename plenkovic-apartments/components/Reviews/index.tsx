@@ -7,7 +7,6 @@ import {
   ListItemText,
   Rating,
 } from "@mui/material";
-import Image from "next/image";
 
 interface ReviewsProps {
   reviews: IReviews[];

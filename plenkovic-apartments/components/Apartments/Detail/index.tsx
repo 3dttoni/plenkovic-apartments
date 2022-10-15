@@ -10,7 +10,6 @@ export interface ApartmentDetailProps {
   title: string;
   description: RichTextContent;
   stars: number;
-  location: ILocation;
   headerImage: IAsset;
   pricesSection: RichTextContent;
   reviewsCollection: IReviews[];

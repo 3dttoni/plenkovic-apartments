@@ -19,7 +19,8 @@ export default function App({
       propertyLocation={propertyLocation}
     >
       <Container
-      disableGutters        sx={{
+        disableGutters
+        sx={{
           fontFamily: "Roboto",
           p: { xs: 0 },
         }}

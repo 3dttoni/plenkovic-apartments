@@ -1,6 +1,7 @@
 import { IApartmentCollection } from "@m/apartment";
 import { IAppSettings } from "@m/appSettings";
 import { ILandingPage } from "@m/landingPage";
+import { ILocationPage } from "@m/locationPage";
 import { IPrices } from "@m/prices";
 import { GraphQLClient, gql } from "graphql-request";
 
@@ -27,10 +28,6 @@ export async function getApartments(): Promise<IApartmentCollection> {
           }
           cons {
             json
-          }
-          location {
-            lat
-            lon
           }
           headerImage {
             url
@@ -131,6 +128,22 @@ export async function getAppSettings(): Promise<IAppSettings> {
             lat
             lon
           }
+        }
+      }
+    }
+  `);
+}
+
+export async function getLocationPage(): Promise<ILocationPage> {
+  return graphQLClient.request(gql`
+    {
+      locationPage(id: "2dDxCoKBYc8uucHgBEdMBc") {
+        description {
+          json
+        }
+        location {
+          lat
+          lon
         }
       }
     }
