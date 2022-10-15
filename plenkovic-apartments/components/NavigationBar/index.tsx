@@ -32,7 +32,6 @@ export default function NavigationBar() {
     setAnchorElNav(null);
   };
 
-  console.log('pathname:', pathname)
   return (
     <AppBar
       position="static"

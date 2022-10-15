@@ -2,9 +2,7 @@ import CardContactUs from "@c/Card/ContactUs";
 import RichText from "@c/RichText";
 import { IAsset, ILocation, IReviews } from "@m/shared";
 import {
-  Box,
   Card,
-  CardContent,
   CardHeader,
   CardMedia,
   Grid,

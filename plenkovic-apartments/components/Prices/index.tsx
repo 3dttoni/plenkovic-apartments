@@ -1,10 +1,10 @@
 import PricesApartment from "@c/Prices/Apartment";
-import useIsMobile from "@h/useIsMobile";
+import useAnimationEffect from "@h/useAnimationEffect";
 import { Grid, Typography } from "@mui/material";
 import { PricesPageProps } from "@p/prices";
 
 export default function Prices({ apartments }: PricesPageProps) {
-  const animationEffect = useIsMobile() ? "flip" : "fade";
+  const animationEffect = useAnimationEffect()
 
   return (
     <main>

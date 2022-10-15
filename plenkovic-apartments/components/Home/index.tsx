@@ -5,7 +5,7 @@ import RichText from "@c/RichText";
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { HomePageProps } from "@p/index";
 import { useEffect, useState } from "react";
-import useIsMobile from "@h/useIsMobile";
+import useAnimationEffect from "@h/useAnimationEffect";
 
 export default function Home({
   headingSlides,
@@ -13,7 +13,7 @@ export default function Home({
   introText,
   apartments,
 }: HomePageProps) {
-  const animationEffect = useIsMobile() ? "flip" : "fade";
+  const animationEffect = useAnimationEffect()
   const [apartmentsSummary, setApartmentsSummary] = useState<
     HomeApartmentProps[]
   >([]);
