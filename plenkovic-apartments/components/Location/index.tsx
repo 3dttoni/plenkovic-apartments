@@ -1,8 +1,9 @@
 import LocationDescription from "@c/Location/Description";
-import LocationMap from "@c/Location/Map";
 import useAnimationEffect from "@h/useAnimationEffect";
 import { Grid, Typography } from "@mui/material";
 import { LocationPageProps } from "@p/location";
+import dynamic from "next/dynamic";
+const LocationMap = dynamic(() => import("@c/Location/Map"), { ssr:false })
 
 export default function Location({ description, location }: LocationPageProps) {
   const animationEffect = useAnimationEffect();
