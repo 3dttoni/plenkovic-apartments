@@ -1,13 +1,8 @@
 import CardContactUs from "@c/Card/ContactUs";
+import Reviews from "@c/Reviews";
 import RichText from "@c/RichText";
 import { IAsset, ILocation, IReviews } from "@m/shared";
-import {
-  Card,
-  CardHeader,
-  CardMedia,
-  Grid,
-  Rating,
-} from "@mui/material";
+import { Card, CardHeader, CardMedia, Grid, Rating, Typography } from "@mui/material";
 import { RichTextContent } from "contentful";
 import ReactImageGallery from "react-image-gallery";
 
@@ -35,6 +30,7 @@ export default function ApartmentDetail({
   headerImage,
   gallery,
   index = 0,
+  reviewsCollection,
 }: ApartmentDetailProps) {
   return (
     <Card
@@ -79,6 +75,10 @@ export default function ApartmentDetail({
             </Grid>
             <Grid item xs={12}>
               <RichText json={cons} />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="subtitle2">Reviews</Typography>
+              <Reviews reviews={reviewsCollection} />
             </Grid>
           </Grid>
         </Grid>
