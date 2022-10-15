@@ -44,10 +44,13 @@ export default function ApartmentDetail({
   }, [stars]);
 
   return (
-    <Card elevation={0} sx={{
-      backgroundColor: index % 2 === 0 ? 'grey.50' : 'background.paper'
-    }}>
-      <Grid container spacing={4} px={4}>
+    <Card
+      elevation={0}
+      sx={{
+        backgroundColor: index % 2 === 0 ? "grey.50" : "background.paper",
+      }}
+    >
+      <Grid container spacing={{ md: 4 }} px={{ md: 4 }} pb={{ xs: 6, md: 0 }}>
         <Grid item xs={12} md={8}>
           <CardHeader
             title={title}
@@ -65,45 +68,43 @@ export default function ApartmentDetail({
             component="img"
             height={500}
           />
-          <CardContent>
-            <Grid container spacing={4} flexDirection={'column'}>
-              <Grid item>
-                <RichText json={description} />
-              </Grid>
-              <Grid item>
-                <ReactImageGallery
-                  items={gallery.map(({ url }) => ({
-                    original: url,
-                    thumbnail: url,
-                    originalHeight: 460,
-                  }))}
-                  slideInterval={4000}
-                  autoPlay
-                />
-              </Grid>
-              <Grid item>
-                <RichText json={pros} />
-              </Grid>
-              <Grid item>
-                <RichText json={cons} />
-              </Grid>
+          <Grid container spacing={{ md: 4 }} flexDirection={"column"}>
+            <Grid item xs={12}>
+              <RichText json={description} />
             </Grid>
-          </CardContent>
+            <Grid item xs={12}>
+              <ReactImageGallery
+                items={gallery.map(({ url }) => ({
+                  original: url,
+                  thumbnail: url,
+                  originalHeight: 460,
+                }))}
+                slideInterval={4000}
+                autoPlay
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <RichText json={pros} />
+            </Grid>
+            <Grid item xs={12}>
+              <RichText json={cons} />
+            </Grid>
+          </Grid>
         </Grid>
         <Grid
           item
           xs={12}
           md={4}
           container
-          mt={4}
-          alignContent={"start"}
-          spacing={6}
+          mt={{ md: 6 }}
+          alignContent={{ md: "start" }}
+          spacing={4}
         >
-          <Grid item>
+          <Grid item xs={12}>
             <RichText json={pricesSection} />
           </Grid>
-          <Grid item>
-            <CardContactUs/>
+          <Grid item xs={12} flex={{ xs: 1, md: 0 }} px={{ xs: 1, md: 0 }}>
+            <CardContactUs />
           </Grid>
         </Grid>
       </Grid>
