@@ -32,6 +32,10 @@ export async function getApartments(): Promise<IApartmentCollection> {
             lat
             lon
           }
+          headerImage {
+            url
+            title
+          }
           galleryCollection {
             items {
               url

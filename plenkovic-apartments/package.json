@@ -20,6 +20,7 @@
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
     "@types/aos": "^3.0.4",
+    "@types/react-image-gallery": "^1.0.5",
     "aos": "^2.3.4",
     "contentful": "^9.2.5",
     "graphql": "^16.6.0",
@@ -27,6 +28,7 @@
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-image-gallery": "^1.2.11",
     "sass": "^1.55.0"
   },
   "devDependencies": {

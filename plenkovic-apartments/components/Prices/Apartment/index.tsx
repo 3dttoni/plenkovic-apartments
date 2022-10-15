@@ -1,10 +1,8 @@
 import RichText from "@c/RichText";
 import { IAsset } from "@m/shared";
 import { Card, CardContent, CardHeader, CardMedia } from "@mui/material";
+import { getStarsIcons } from "@u/apartment";
 import { RichTextContent } from "contentful";
-import StarIcon from "@mui/icons-material/Star";
-import StarHalfIcon from "@mui/icons-material/StarHalf";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 export interface PricesApartmentProps {
   priceSection: RichTextContent;
@@ -18,18 +16,6 @@ export default function PricesApartment({
   title,
   image,
 }: PricesApartmentProps) {
-  const starsIcons = [];
-
-  while (stars > 0.5) {
-    --stars;
-    starsIcons.push(StarIcon);
-  }
-  if (stars !== 0) starsIcons.push(StarHalfIcon);
-  if (starsIcons.length < 5) {
-    while (starsIcons.length < 5) {
-      starsIcons.push(StarBorderIcon);
-    }
-  }
 
   return (
     <Card elevation={5}>
@@ -37,7 +23,7 @@ export default function PricesApartment({
         title={title}
         subheader={
           <>
-            {starsIcons.map((Icon, index) => (
+            {getStarsIcons(stars).map((Icon, index) => (
               <Icon color="success" key={index} />
             ))}
           </>

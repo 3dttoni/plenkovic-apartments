@@ -18,7 +18,6 @@ export default function HomeApartment({
     <Box sx={{ p: 2 }}>
       <Image
         src={banner.url}
-        title={banner.title}
         alt={banner.title}
         height={1330}
         width={1550}

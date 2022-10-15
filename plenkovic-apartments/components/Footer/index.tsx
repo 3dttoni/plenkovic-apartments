@@ -72,7 +72,7 @@ export default function AppFooter() {
               pb: 2,
             }
           : {
-              mt: { md: 4, xs: 2 },
+              mt: { md: 16, xs: 2 },
               pt: { md: 4, xs: 2 },
               pb: 2,
             }),

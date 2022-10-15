@@ -8,7 +8,7 @@ export default function Prices({ apartments }: PricesPageProps) {
 
   return (
     <main>
-      <Typography mt={4} mb={3} variant={"h4"} component={"h1"}>
+      <Typography mt={4} mb={3} variant={"h3"} component={"h1"}>
         Price list
       </Typography>
       <Grid container spacing={4}>
