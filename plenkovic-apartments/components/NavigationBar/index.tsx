@@ -36,9 +36,14 @@ export default function NavigationBar() {
     <AppBar
       position="static"
       color={
-        (isMobile || pathname !== appRoutes.home.path) ? "secondary" : "transparent"
+        isMobile || pathname !== appRoutes.home.path
+          ? "secondary"
+          : "transparent"
       }
       elevation={isMobile ? 5 : 0}
+      sx={{
+        py: 1,
+      }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -59,7 +64,6 @@ export default function NavigationBar() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
             }}
@@ -99,7 +103,11 @@ export default function NavigationBar() {
                 <MenuItem key={path} onClick={handleCloseNavMenu}>
                   <Link href={path}>
                     <a style={{ textDecoration: "none" }}>
-                      <Typography color="common.black" textAlign="center">
+                      <Typography
+                        color="primary.contrastText"
+                        textAlign="center"
+                        fontFamily={"Roboto"}
+                      >
                         {title}
                       </Typography>
                     </a>
@@ -115,10 +123,9 @@ export default function NavigationBar() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              py:1
+              py: 1,
             }}
           >
             PLENKOVIĆ <br />
@@ -147,6 +154,7 @@ export default function NavigationBar() {
                     color: "white",
                     display: "block",
                     fontSize: "1rem",
+                    fontFamily: "Roboto",
                   }}
                   component="a"
                 >
