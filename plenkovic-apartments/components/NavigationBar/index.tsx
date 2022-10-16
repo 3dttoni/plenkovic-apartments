@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,14 +12,10 @@ import MenuItem from "@mui/material/MenuItem";
 import SailingOutlinedIcon from "@mui/icons-material/SailingOutlined";
 import Link from "next/link";
 import { appRoutes } from "@u/routes";
-import useIsMobile from "@h/useIsMobile";
-import { AppContext } from "@c/App/context";
 
 const pages = Object.keys(appRoutes).map((key) => appRoutes[key]);
 
 export default function NavigationBar() {
-  const isMobile = useIsMobile();
-  const { pathname } = useContext(AppContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -35,12 +31,8 @@ export default function NavigationBar() {
   return (
     <AppBar
       position="static"
-      color={
-        isMobile || pathname !== appRoutes.home.path
-          ? "secondary"
-          : "transparent"
-      }
-      elevation={isMobile ? 5 : 0}
+      color={"transparent"}
+      elevation={0}
       sx={{
         py: 1,
       }}
@@ -60,7 +52,7 @@ export default function NavigationBar() {
           <Typography
             variant="h5"
             noWrap
-            color="white"
+            color="primary"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -77,7 +69,7 @@ export default function NavigationBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="primary"
             >
               <MenuIcon />
             </IconButton>
@@ -119,6 +111,7 @@ export default function NavigationBar() {
           <Typography
             variant="h5"
             noWrap
+            color={"primary"}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },

@@ -9,7 +9,7 @@ export default function Apartments({ apartments }: ApartmentsPageProps) {
 
   return (
     <main>
-      <Typography my={5} variant={"h3"} component={"h1"}>
+      <Typography my={5} variant={"h3"} component={"h1"} color="primary">
         Apartments
       </Typography>
       <Grid container spacing={10}>

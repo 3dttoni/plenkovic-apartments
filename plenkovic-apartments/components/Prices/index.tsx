@@ -1,14 +1,15 @@
 import PricesApartment from "@c/Prices/Apartment";
+import { PositionEnum } from "@e/position";
 import useAnimationEffect from "@h/useAnimationEffect";
 import { Grid, Typography } from "@mui/material";
 import { PricesPageProps } from "@p/prices";
 
 export default function Prices({ apartments }: PricesPageProps) {
-  const animationEffect = useAnimationEffect()
+  const animationEffect = useAnimationEffect();
 
   return (
     <main>
-      <Typography my={5} variant={"h3"} component={"h1"}>
+      <Typography my={5} variant={"h3"} component={"h1"} color="primary">
         Price list
       </Typography>
       <Grid container spacing={4}>
@@ -19,7 +20,7 @@ export default function Prices({ apartments }: PricesPageProps) {
             xs={12}
             md={6}
             data-aos={`${animationEffect}-${
-              index % 2 !== 0 ? "left" : "right"
+              index % 2 !== 0 ? PositionEnum.LEFT : PositionEnum.RIGHT
             }`}
           >
             <PricesApartment key={index} {...props} />

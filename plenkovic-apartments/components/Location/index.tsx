@@ -6,10 +6,10 @@ import { LocationPageProps } from "@p/location";
 export default function Location({ title, sections }: LocationPageProps) {
   return (
     <main>
-      <Typography my={5} variant={"h3"} component={"h1"}>
+      <Typography my={5} variant={"h3"} component={"h1"} color="primary">
         {title}
       </Typography>
-      <Grid container spacing={6}>
+      <Grid container spacing={6} mb={10}>
         {sections.map((props, index) => (
           <Grid item xs={12} key={index}>
             <LocationSection

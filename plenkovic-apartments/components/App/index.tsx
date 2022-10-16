@@ -7,6 +7,7 @@ import AppProvider, { IAppContext } from "@c/App/context";
 import { ThemeProvider } from "@emotion/react";
 import { useMemo } from "react";
 import { getTheme } from "@u/theme";
+import Background from "@c/Background";
 
 export default function App({
   Component,
@@ -24,6 +25,7 @@ export default function App({
         contact={contact}
         propertyLocation={propertyLocation}
       >
+        <Background />
         <Container
           disableGutters
           sx={{
