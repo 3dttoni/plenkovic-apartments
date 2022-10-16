@@ -2,7 +2,14 @@ import CardContactUs from "@c/Card/ContactUs";
 import Reviews from "@c/Reviews";
 import RichText from "@c/RichText";
 import { IAsset, ILocation, IReviews } from "@m/shared";
-import { Card, CardHeader, CardMedia, Grid, Rating, Typography } from "@mui/material";
+import {
+  Card,
+  CardHeader,
+  CardMedia,
+  Grid,
+  Rating,
+  Typography,
+} from "@mui/material";
 import { RichTextContent } from "contentful";
 import ReactImageGallery from "react-image-gallery";
 
@@ -31,14 +38,17 @@ export default function ApartmentDetail({
   index = 0,
   reviewsCollection,
 }: ApartmentDetailProps) {
+  const isEven = index % 2 === 0;
+  
   return (
-    <Card
-      elevation={0}
-      sx={{
-        backgroundColor: index % 2 === 0 ? "grey.50" : "background.paper",
-      }}
-    >
-      <Grid container spacing={{ md: 4 }} px={{ md: 4 }} pb={{ xs: 6, md: 0 }}>
+    <Card elevation={0}>
+      <Grid
+        container
+        spacing={{ md: 4 }}
+        px={{ md: 4 }}
+        pb={{ xs: 6, md: 0 }}
+        direction={isEven ? "row" : "row-reverse"}
+      >
         <Grid item xs={12} md={8}>
           <CardHeader
             title={title}
@@ -54,7 +64,12 @@ export default function ApartmentDetail({
             component="img"
             height={500}
           />
-          <Grid container spacing={{ md: 4 }} flexDirection={"column"}>
+          <Grid
+            container
+            spacing={{ md: 4 }}
+            flexDirection={"column"}
+            px={{ xs: 2, md: 0 }}
+          >
             <Grid item xs={12}>
               <RichText json={description} />
             </Grid>
@@ -89,11 +104,12 @@ export default function ApartmentDetail({
           mt={{ md: 6 }}
           alignContent={{ md: "start" }}
           spacing={4}
+          px={{ xs: 2, md: 0 }}
         >
           <Grid item xs={12}>
             <RichText json={pricesSection} />
           </Grid>
-          <Grid item xs={12} flex={{ xs: 1, md: 0 }} px={{ xs: 1, md: 0 }}>
+          <Grid item xs={12} flex={{ xs: 1, md: 0 }}>
             <CardContactUs />
           </Grid>
         </Grid>

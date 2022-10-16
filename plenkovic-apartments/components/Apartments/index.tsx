@@ -12,7 +12,7 @@ export default function Apartments({ apartments }: ApartmentsPageProps) {
       <Typography mt={4} mb={3} variant={"h3"} component={"h1"}>
         Apartments
       </Typography>
-      <Grid container spacing={6}>
+      <Grid container spacing={10}>
         {apartments.map((props, index) => (
           <Grid
             item
