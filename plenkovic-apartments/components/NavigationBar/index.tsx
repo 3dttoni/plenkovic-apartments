@@ -36,7 +36,7 @@ export default function NavigationBar() {
     <AppBar
       position="static"
       color={
-        (isMobile || pathname !== appRoutes.home.path) ? "primary" : "transparent"
+        (isMobile || pathname !== appRoutes.home.path) ? "secondary" : "transparent"
       }
       elevation={isMobile ? 5 : 0}
     >

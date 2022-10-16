@@ -4,6 +4,9 @@ import Layout from "@c/Layout";
 import { Container } from "@mui/material";
 import AppFooter from "@c/Footer";
 import AppProvider, { IAppContext } from "@c/App/context";
+import { ThemeProvider } from "@emotion/react";
+import { useMemo } from "react";
+import { getTheme } from "@u/theme";
 
 export default function App({
   Component,
@@ -12,25 +15,29 @@ export default function App({
   pathname,
   propertyLocation,
 }: AppProps & IAppContext) {
+  const theme = useMemo(() => getTheme(), []);
+
   return (
-    <AppProvider
-      pathname={pathname}
-      contact={contact}
-      propertyLocation={propertyLocation}
-    >
-      <Container
-        disableGutters
-        sx={{
-          fontFamily: "Roboto",
-          p: { xs: 0 },
-        }}
+    <ThemeProvider theme={theme}>
+      <AppProvider
+        pathname={pathname}
+        contact={contact}
+        propertyLocation={propertyLocation}
       >
-        <AppHead />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-        <AppFooter />
-      </Container>
-    </AppProvider>
+        <Container
+          disableGutters
+          sx={{
+            fontFamily: "Roboto",
+            p: { xs: 0 },
+          }}
+        >
+          <AppHead />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+          <AppFooter />
+        </Container>
+      </AppProvider>
+    </ThemeProvider>
   );
 }

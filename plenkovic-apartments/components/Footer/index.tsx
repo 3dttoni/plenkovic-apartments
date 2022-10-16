@@ -61,8 +61,8 @@ export default function AppFooter() {
       container
       justifyContent={"center"}
       sx={{
-        bgcolor: "info.dark",
-        color: "info.contrastText",
+        bgcolor: "secondary.dark",
+        color: "secondary.contrastText",
         left: 0,
         right: 0,
         position: "absolute",
