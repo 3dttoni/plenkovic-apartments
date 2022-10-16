@@ -21,7 +21,9 @@
       "@i/*": ["./interfaces/*"],
       "@p/*": ["./pages/*"],
       "@h/*": ["./hooks/*"],
-      "@s/*": ["./styles/*"]
+      "@s/*": ["./styles/*"],
+      "@e/*": ["./enums/*"],
+
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

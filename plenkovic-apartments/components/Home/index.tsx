@@ -6,6 +6,7 @@ import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { HomePageProps } from "@p/index";
 import { useEffect, useState } from "react";
 import useAnimationEffect from "@h/useAnimationEffect";
+import { PositionEnum } from "@e/position";
 
 export default function Home({
   headingSlides,
@@ -13,7 +14,7 @@ export default function Home({
   introText,
   apartments,
 }: HomePageProps) {
-  const animationEffect = useAnimationEffect()
+  const animationEffect = useAnimationEffect();
   const [apartmentsSummary, setApartmentsSummary] = useState<
     HomeApartmentProps[]
   >([]);
@@ -24,7 +25,8 @@ export default function Home({
         apartments.map(({ summary, banner }, index) => ({
           summary,
           banner,
-          imagePosition: index % 2 === 0 ? "left" : "right",
+          imagePosition:
+            index % 2 === 0 ? PositionEnum.LEFT : PositionEnum.RIGHT,
         }))
       );
   }, [apartments]);

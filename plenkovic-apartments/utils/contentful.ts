@@ -137,13 +137,20 @@ export async function getAppSettings(): Promise<IAppSettings> {
 export async function getLocationPage(): Promise<ILocationPage> {
   return graphQLClient.request(gql`
     {
-      locationPage(id: "2dDxCoKBYc8uucHgBEdMBc") {
-        description {
-          json
-        }
-        location {
-          lat
-          lon
+      locationPage(id: "2jYvxe24rzCroDpJIY75n") {
+        title
+        sectionsCollection {
+          items {
+            description {
+              json
+            }
+            location {
+              lat
+              lon
+            }
+            transport
+            title
+          }
         }
       }
     }

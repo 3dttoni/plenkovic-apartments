@@ -1,12 +1,18 @@
 import LocationPageComponent from "@c/Location";
+import { TransportEnum } from "@e/transport";
 import { ILocationPage } from "@m/locationPage";
 import { ILocation } from "@m/shared";
 import { getLocationPage } from "@u/contentful";
 import { RichTextContent } from "contentful";
 
 export interface LocationPageProps {
-  location: ILocation;
-  description: RichTextContent;
+  title: string;
+  sections: {
+    location: ILocation;
+    description: RichTextContent;
+    transport: TransportEnum;
+    title: string;
+  }[];
 }
 
 export default function LocationPage(props: LocationPageProps) {
@@ -20,8 +26,15 @@ export async function getStaticProps(): Promise<{
 
   return {
     props: {
-      location: data.locationPage.location,
-      description: data.locationPage.description.json,
+      title: data.locationPage.title,
+      sections: data.locationPage.sectionsCollection.items.map(
+        ({ location, description, transport, title }) => ({
+          location,
+          title,
+          transport: transport[0],
+          description: description.json,
+        })
+      ),
     },
   };
 }

@@ -1,25 +1,25 @@
-import LocationDescription from "@c/Location/Description";
-import useAnimationEffect from "@h/useAnimationEffect";
+import LocationSection from "@c/Location/Section";
+import { PositionEnum } from "@e/position";
 import { Grid, Typography } from "@mui/material";
 import { LocationPageProps } from "@p/location";
-import dynamic from "next/dynamic";
-const LocationMap = dynamic(() => import("@c/Location/Map"), { ssr:false })
 
-export default function Location({ description, location }: LocationPageProps) {
-  const animationEffect = useAnimationEffect();
-
+export default function Location({ title, sections }: LocationPageProps) {
   return (
     <main>
       <Typography mt={4} mb={3} variant={"h3"} component={"h1"}>
-        Location
+        {title}
       </Typography>
       <Grid container spacing={6}>
-        <Grid item xs={12} data-aos={`${animationEffect}-left`}>
-          <LocationDescription description={description} />
-        </Grid>
-        <Grid item xs={12}>
-          <LocationMap location={location} />
-        </Grid>
+        {sections.map((props, index) => (
+          <Grid item xs={12} key={index}>
+            <LocationSection
+              imagePosition={
+                index % 2 === 0 ? PositionEnum.LEFT : PositionEnum.RIGHT
+              }
+              {...props}
+            />
+          </Grid>
+        ))}
       </Grid>
     </main>
   );

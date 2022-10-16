@@ -1,7 +1,7 @@
 import { ILocation } from "@m/shared";
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
 
-interface LocationMapProps {
+export interface LocationMapProps {
   location: ILocation;
 }
 
