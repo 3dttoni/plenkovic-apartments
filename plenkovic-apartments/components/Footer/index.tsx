@@ -18,6 +18,7 @@ import BedIcon from "@mui/icons-material/Bed";
 import CardExploreApartments from "@c/Card/ExploreApartments";
 import { appRoutes } from "@u/routes";
 import useIsMobile from "@h/useIsMobile";
+import AppScripts from "@c/Scripts";
 
 interface FooterSectionProps {
   title: string;
@@ -146,10 +147,7 @@ export default function AppFooter() {
           </ListItem>
         ))}
       />
-      <script
-        async={true}
-        src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-      ></script>
+      <AppScripts />
     </Grid>
   );
 }
