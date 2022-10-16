@@ -1,7 +1,7 @@
 import CardContactUs from "@c/Card/ContactUs";
 import Reviews from "@c/Reviews";
 import RichText from "@c/RichText";
-import { IAsset, ILocation, IReviews } from "@m/shared";
+import { IAsset, IReviews } from "@m/shared";
 import {
   Card,
   CardHeader,
@@ -39,7 +39,7 @@ export default function ApartmentDetail({
   reviewsCollection,
 }: ApartmentDetailProps) {
   const isEven = index % 2 === 0;
-  
+
   return (
     <Card elevation={0}>
       <Grid

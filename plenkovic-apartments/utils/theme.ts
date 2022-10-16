@@ -7,7 +7,6 @@ export function getTheme(): Theme {
     dark: "#006978",
     contrastText: "#fafafa",
   };
-
   const theme = createTheme({
     palette: {
       primary: {
@@ -20,5 +19,6 @@ export function getTheme(): Theme {
       info: secondary,
     },
   });
+
   return theme;
 }

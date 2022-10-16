@@ -6,7 +6,7 @@ import { LocationPageProps } from "@p/location";
 export default function Location({ title, sections }: LocationPageProps) {
   return (
     <main>
-      <Typography mt={4} mb={3} variant={"h3"} component={"h1"}>
+      <Typography my={5} variant={"h3"} component={"h1"}>
         {title}
       </Typography>
       <Grid container spacing={6}>

@@ -14,6 +14,7 @@ import { useContext } from "react";
 import { AppContext } from "@c/App/context";
 import Link from "next/link";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import ForkRightRoundedIcon from "@mui/icons-material/ForkRightRounded";
 import BedIcon from "@mui/icons-material/Bed";
 import CardExploreApartments from "@c/Card/ExploreApartments";
 import { appRoutes } from "@u/routes";
@@ -112,6 +113,7 @@ export default function AppFooter() {
         Items={[
           { Icon: MonetizationOnIcon, appRoute: appRoutes.prices },
           { Icon: BedIcon, appRoute: appRoutes.apartments },
+          { Icon: ForkRightRoundedIcon, appRoute: appRoutes.location },
         ].map(({ Icon, appRoute: { title, path } }) => (
           <ListItem dense={isMobile} key={path}>
             <ListItemIcon sx={{ color: "info.contrastText" }}>
