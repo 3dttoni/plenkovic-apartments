@@ -15,41 +15,39 @@ export default function HomeApartment({
   banner,
   imagePosition,
 }: HomeApartmentProps) {
-  const ImageComponent = (
-    <Box sx={{ p: 2 }}>
-      <Image src={banner.url} alt={banner.title} height={1330} width={1550} />
-    </Box>
-  );
-  const RichTextComponent = (
-    <Box
-      sx={{
-        padding: 4,
-        p: {
-          color: "GrayText",
-          fontVariant: "body1",
-        },
-        h1: {
-          color: "black",
-        },
-      }}
-    >
-      <Typography variant="body1">
-        <RichText json={summary} />
-      </Typography>
-    </Box>
-  );
-
   return (
-    <Grid container spacing={{ md: 2 }}>
+    <Grid
+      container
+      spacing={{ md: 2 }}
+      direction={imagePosition === PositionEnum.LEFT ? "row" : "row-reverse"}
+    >
       <Grid item xs={12} md={6}>
-        {imagePosition === PositionEnum.LEFT
-          ? ImageComponent
-          : RichTextComponent}
+        <Box sx={{ p: 2 }}>
+          <Image
+            src={banner.url}
+            alt={banner.title}
+            height={1330}
+            width={1550}
+          />
+        </Box>
       </Grid>
       <Grid xs={12} md={6}>
-        {imagePosition === PositionEnum.RIGHT
-          ? RichTextComponent
-          : ImageComponent}
+        <Box
+          sx={{
+            padding: 4,
+            p: {
+              color: "GrayText",
+              fontVariant: "body1",
+            },
+            h1: {
+              color: "black",
+            },
+          }}
+        >
+          <Typography variant="body1">
+            <RichText json={summary} />
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   );
