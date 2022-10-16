@@ -27,10 +27,9 @@ export default function App({
       >
         <Background />
         <Container
-          disableGutters
           sx={{
             fontFamily: "Roboto",
-            p: { xs: 0 },
+            p: { xs: 1 },
           }}
         >
           <AppHead />

@@ -1,12 +1,20 @@
 import LocationSection from "@c/Location/Section";
 import { PositionEnum } from "@e/position";
+import useIsMobile from "@h/useIsMobile";
 import { Grid, Typography } from "@mui/material";
 import { LocationPageProps } from "@p/location";
 
 export default function Location({ title, sections }: LocationPageProps) {
+  const isMobile = useIsMobile();
+
   return (
     <main>
-      <Typography my={5} variant={"h3"} component={"h1"} color="primary">
+      <Typography
+        my={5}
+        variant={"h3"}
+        component={"h1"}
+        color={isMobile ? "inherit" : "primary"}
+      >
         {title}
       </Typography>
       <Grid container spacing={6} mb={10}>

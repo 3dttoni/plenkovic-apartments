@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,10 +12,14 @@ import MenuItem from "@mui/material/MenuItem";
 import SailingOutlinedIcon from "@mui/icons-material/SailingOutlined";
 import Link from "next/link";
 import { appRoutes } from "@u/routes";
+import useIsMobile from "@h/useIsMobile";
+import { AppContext } from "@c/App/context";
 
 const pages = Object.keys(appRoutes).map((key) => appRoutes[key]);
 
 export default function NavigationBar() {
+  const isMobile = useIsMobile();
+  const { pathname } = useContext(AppContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -31,11 +35,15 @@ export default function NavigationBar() {
   return (
     <AppBar
       position="static"
-      color={"transparent"}
-      elevation={0}
+      elevation={isMobile ? 5 : 0}
       sx={{
         py: 1,
       }}
+      color={
+        isMobile || pathname !== appRoutes.home.path
+          ? "secondary"
+          : "transparent"
+      }
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
