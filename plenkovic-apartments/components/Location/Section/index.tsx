@@ -12,7 +12,7 @@ import DirectionsCarFilledRoundedIcon from "@mui/icons-material/DirectionsCarFil
 
 const LocationMap = dynamic(() => import("@c/Location/Map"), { ssr: false });
 
-export interface LocationSectionProps extends LocationMapProps {
+export interface LocationSectionProps extends Omit<LocationMapProps, "zoom"> {
   imagePosition: PositionEnum;
   description: RichTextContent;
   title: string;
@@ -27,24 +27,37 @@ export default function LocaitonSection({
   transport,
 }: LocationSectionProps) {
   const animationEffect = useAnimationEffect();
+  let mapZoom: number;
+  let TransportIcon: any;
+
+  switch (transport) {
+    case TransportEnum.BUS: {
+      TransportIcon = DirectionsBusRoundedIcon;
+      mapZoom = 17;
+      break;
+    }
+    case TransportEnum.PLANE: {
+      TransportIcon = AirplanemodeActiveRoundedIcon;
+      mapZoom = 10;
+      break;
+    }
+    case TransportEnum.CAR: {
+      TransportIcon = DirectionsCarFilledRoundedIcon;
+      mapZoom = 18;
+      break;
+    }
+    default: {
+      mapZoom = 14;
+      TransportIcon = null;
+    }
+  }
 
   return (
     <Card elevation={5} data-aos={`${animationEffect}-${imagePosition}`}>
-      <CardHeader
-        title={
-          <>
-            {transport === TransportEnum.BUS && <DirectionsBusRoundedIcon />}
-            {transport === TransportEnum.PLANE && (
-              <AirplanemodeActiveRoundedIcon />
-            )}
-            {transport === TransportEnum.CAR && (
-              <DirectionsCarFilledRoundedIcon />
-            )}
-          </>
-        }
-      />
+      <CardHeader title={<TransportIcon />} />
       <CardContent>
         <Grid
+          mb={6}
           container
           flexDirection={
             imagePosition === PositionEnum.LEFT ? "row" : "row-reverse"
@@ -58,7 +71,7 @@ export default function LocaitonSection({
             <RichText json={description} />
           </Grid>
           <Grid item xs={12} md={6}>
-            <LocationMap location={location} />
+            <LocationMap location={location} title={title} zoom={mapZoom} />
           </Grid>
         </Grid>
       </CardContent>
