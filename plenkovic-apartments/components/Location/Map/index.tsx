@@ -25,7 +25,7 @@ export default function LocationMap({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={[propertyLocation.lat, propertyLocation.lon]}>
-        <Popup>{title}</Popup>
+        <Popup>Plenković apartments</Popup>
       </Marker>
       <Marker position={position}>
         <Popup>{title}</Popup>
