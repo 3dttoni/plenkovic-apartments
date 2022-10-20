@@ -71,12 +71,12 @@ export default function AppFooter() {
           ? {
               mt: { md: 22, xs: 4 },
               pt: { md: 15, xs: 4 },
-              pb: 2,
+              pb: 10,
             }
           : {
               mt: { md: 16, xs: 2 },
               pt: { md: 4, xs: 2 },
-              pb: 2,
+              pb: 10,
             }),
       }}
     >
@@ -150,6 +150,25 @@ export default function AppFooter() {
         ))}
       />
       <AppScripts />
+      <Typography
+        sx={{
+          position: "absolute",
+          bottom: "1rem",
+          fontSize:"0.85rem"
+        }}
+        color="primary.dark"
+      >
+        Powered by{" "}
+        <a
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+          }}
+          href="https://www.linkedin.com/in/antonio-kamber-18bbb4186/"
+        >
+          3DT Software
+        </a>
+      </Typography>
     </Grid>
   );
 }
