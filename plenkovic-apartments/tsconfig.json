@@ -18,9 +18,14 @@
       "@u/*": ["./utils/*"],
       "@m/*": ["./models/*"],
       "@c/*": ["./components/*"],
-      "@i/*": ["./interfaces/*"]
+      "@i/*": ["./interfaces/*"],
+      "@p/*": ["./pages/*"],
+      "@h/*": ["./hooks/*"],
+      "@s/*": ["./styles/*"],
+      "@e/*": ["./enums/*"],
+
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/gtag.ts"],
   "exclude": ["node_modules"]
 }

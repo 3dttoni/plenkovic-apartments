@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,15 +11,15 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import SailingOutlinedIcon from "@mui/icons-material/SailingOutlined";
 import Link from "next/link";
-import { useTheme } from "@mui/system";
-import { useMediaQuery } from "@mui/material";
+import { appRoutes } from "@u/routes";
+import useIsMobile from "@h/useIsMobile";
+import { AppContext } from "@c/App/context";
 
-const pages = ["Home", "Apartments", "Prices"];
-const hrefs = ["/", "/apartments", "/prices"];
+const pages = Object.keys(appRoutes).map((key) => appRoutes[key]);
 
 export default function NavigationBar() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useIsMobile();
+  const { pathname } = useContext(AppContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -35,28 +35,35 @@ export default function NavigationBar() {
   return (
     <AppBar
       position="static"
-      color={isMobile ? "primary" : "transparent"}
-      elevation={isMobile ? 3 : 0}
+      elevation={isMobile ? 5 : 0}
+      sx={{
+        py: 1,
+      }}
+      color={
+        isMobile || pathname !== appRoutes.home.path
+          ? "secondary"
+          : "transparent"
+      }
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link href="/">
             <SailingOutlinedIcon
-              color="primary"
               sx={{
                 display: { xs: "none", md: "flex" },
                 mr: 1,
                 cursor: "pointer",
+                color: "white",
               }}
             />
           </Link>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
+            color="primary"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
             }}
@@ -70,7 +77,7 @@ export default function NavigationBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="primary"
             >
               <MenuIcon />
             </IconButton>
@@ -92,9 +99,19 @@ export default function NavigationBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map(({ path, title }) => (
+                <MenuItem key={path} onClick={handleCloseNavMenu}>
+                  <Link href={path}>
+                    <a style={{ textDecoration: "none" }}>
+                      <Typography
+                        color="primary.contrastText"
+                        textAlign="center"
+                        fontFamily={"Roboto"}
+                      >
+                        {title}
+                      </Typography>
+                    </a>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -102,13 +119,14 @@ export default function NavigationBar() {
           <Typography
             variant="h5"
             noWrap
+            color={"primary"}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
+              py: 1,
             }}
           >
             PLENKOVIĆ <br />
@@ -128,13 +146,20 @@ export default function NavigationBar() {
               justifyContent: "end",
             }}
           >
-            {pages.map((page, index) => (
-              <Link href={hrefs[index]} key={page}>
+            {pages.map(({ path, title }) => (
+              <Link href={path} key={path}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "inherit", display: "block" }}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontSize: "1rem",
+                    fontFamily: "Roboto",
+                  }}
+                  component="a"
                 >
-                  {page}
+                  {title}
                 </Button>
               </Link>
             ))}

@@ -1,5 +1,9 @@
 {
   "name": "plenkovic-apartments",
+  "author": {
+    "name": "Antonio Kamber",
+    "email": "3dt.software@gmail.com"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,19 +13,28 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
+    "@types/aos": "^3.0.4",
+    "@types/react-image-gallery": "^1.0.5",
+    "aos": "^2.3.4",
     "contentful": "^9.2.5",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
+    "leaflet": "^1.9.2",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-image-gallery": "^1.2.11",
+    "react-leaflet": "^4.1.0",
+    "sass": "^1.55.0"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.0",
     "@types/node": "18.8.2",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
